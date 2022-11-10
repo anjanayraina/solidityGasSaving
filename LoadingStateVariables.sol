@@ -21,7 +21,18 @@ contract LoadingStateVariables{
             if(a[i]%2 == 0 && a[i] < 99){
                 total+=a[i];
             }
-        }
+        } 
     }
-
+    // gas : 48546
+    // loading the state variables everytime to the functions takes  more gas 
+    // its better to just load it once in a variable and update after doing all the operations 
+    function moreMoreGasSaved(uint[] calldata a)external {
+        uint _total ;
+        for(uint i=0;i<a.length;i++){
+            if(a[i]%2 == 0 && a[i] < 99){
+                _total+=a[i];
+            }
+        }
+        total = _total;
+    }
 }
