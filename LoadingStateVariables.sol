@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: GPL-3.0
 pragma solidity ^0.8.0;
 contract LoadingStateVariables{
     uint public total;
@@ -29,6 +30,18 @@ contract LoadingStateVariables{
     function moreMoreGasSaved(uint[] calldata a)external {
         uint _total ;
         for(uint i=0;i<a.length;i++){
+            if(a[i]%2 == 0 && a[i] < 99){
+                _total+=a[i];
+            }
+        }
+        total = _total;
+    }
+
+    // gas : 48538
+    // you can save some more gas by doing ++i in the loop iteratoins 
+    function moreMoreMoreGasSaved(uint[] calldata a)external {
+        uint _total ;
+        for(uint i=0;i<a.length;++i){
             if(a[i]%2 == 0 && a[i] < 99){
                 _total+=a[i];
             }
