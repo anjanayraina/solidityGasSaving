@@ -48,4 +48,14 @@ contract LoadingStateVariables{
         }
         total = _total;
     }
+     function finalGasSaved(uint[] calldata a)external {
+        uint _total ;
+        uint len = a.length;
+        for(uint i=0;i<len;++i){
+            if(a[i]%2 == 0 && a[i] < 99){
+                _total+=a[i];
+            }
+        }
+        total = _total;
+    }
 }
