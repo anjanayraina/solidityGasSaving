@@ -48,6 +48,8 @@ contract LoadingStateVariables{
         }
         total = _total;
     }
+    // gas : 48495
+    // save the length of the array in a variable instead of checking after evety iterations
      function finalGasSaved(uint[] calldata a)external {
         uint _total ;
         uint len = a.length;
